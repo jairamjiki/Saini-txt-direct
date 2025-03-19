@@ -189,7 +189,7 @@ async def start_command(bot: Client, message: Message):
     # Caption for the image
     caption = (
         "🌟 Welcome Boss😸! 🌟\n\n"
-        "➽ I am powerful uploader bot 📥\n\n➽ For Extract Link Send link (with https://)\n\n➽ 𝐔𝐬𝐞 /saini for Extract .txt file 🗃️\n\n➽ 𝐔𝐬𝐞 /Stop for **Stop** ⛔ working process \n\n➽ 𝐔𝐬𝐞 /cookies for update YouTube cookies.\n\n➽ 𝐔𝐬𝐞 /logs to see your bot logs.\n\n➽ 𝐌𝐚𝐝𝐞 𝐁𝐲: 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
+        "➽ I am powerful uploader bot 📥\n\n➽ For Extract Link Send link (with https://)\n\n➽ 𝐔𝐬𝐞 /saini for Extract .txt file 🗃️\n\n➽ 𝐔𝐬𝐞 /Stop for **Stop** ⛔ working process\n\n➽ 𝐔𝐬𝐞 /y2t for YT Playlist into .txt\n\n➽ 𝐔𝐬𝐞 /cookies for update YouTube cookies.\n\n➽ 𝐔𝐬𝐞 /logs to see your bot logs.\n\n➽ 𝐌𝐚𝐝𝐞 𝐁𝐲: 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
     )
 
     await asyncio.sleep(1)
@@ -249,6 +249,84 @@ async def restart_handler(_, m):
     await m.reply_text("🦅ˢᵗᵒᵖᵖᵉᵈ ᵇᵃᵇʸ💞", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
+@bot.on_message(filters.command(["y2t"]))
+async def youtube_to_txt(client, message: Message):
+    user_id = str(message.from_user.id)
+    
+    await message.reply_text(
+        "<pre><code>Welcome to the YouTube to .txt🗃️ Converter!</code></pre>\n"
+        "<pre><code>Please Send YouTube Playlist link for convert into a `.txt` file.</code></pre>\n"
+    )
+
+    input_message: Message = await bot.listen(message.chat.id)
+    youtube_link = input_message.text.strip()
+    await input_message.delete(True)
+
+    # Fetch the YouTube information using yt-dlp with cookies
+    ydl_opts = {
+        'quiet': True,
+        'extract_flat': True,
+        'skip_download': True,
+        'force_generic_extractor': True,
+        'forcejson': True,
+        'cookies': 'youtube_cookies.txt'  # Specify the cookies file
+    }
+
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        try:
+            result = ydl.extract_info(youtube_link, download=False)
+            if 'entries' in result:
+                title = result.get('title', 'youtube_playlist')
+            else:
+                title = result.get('title', 'youtube_video')
+        except yt_dlp.utils.DownloadError as e:
+            await message.reply_text(
+                f"<pre><code>🚨 Error occurred {str(e)}</code></pre>"
+            )
+            return
+
+    # Ask the user for the custom file name
+    file_name_message = await message.reply_text(
+        f"<pre><code>🔤 Send file name (without extension)</code></pre>\n"
+        f"**✨ Send  `1`  for Default**\n"
+        f"<pre><code>{title}</code></pre>\n"
+    )
+
+    input4: Message = await bot.listen(message.chat.id, filters=filters.text & filters.user(message.from_user.id))
+    raw_text4 = input4.text
+    await file_name_message.delete(True)
+    await input4.delete(True)
+    if raw_text4 == '1':
+       custom_file_name  = title
+    else:
+       custom_file_name = raw_text4
+    
+    # Extract the YouTube links
+    videos = []
+    if 'entries' in result:
+        for entry in result['entries']:
+            video_title = entry.get('title', 'No title')
+            url = entry['url']
+            videos.append(f"{video_title}: {url}")
+    else:
+        video_title = result.get('title', 'No title')
+        url = result['url']
+        videos.append(f"{video_title}: {url}")
+
+    # Create and save the .txt file with the custom name
+    txt_file = os.path.join("downloads", f'{custom_file_name}.txt')
+    os.makedirs(os.path.dirname(txt_file), exist_ok=True)  # Ensure the directory exists
+    with open(txt_file, 'w') as f:
+        f.write('\n'.join(videos))
+
+    # Send the generated text file to the user with a pretty caption
+    await message.reply_document(
+        document=txt_file,
+        caption=f'<a href="{youtube_link}">__**Click Here to open Playlist**__</a>\n<pre><code>{custom_file_name}.txt</code></pre>\n'
+    )
+
+    # Remove the temporary text file after sending
+    os.remove(txt_file)
 
 @bot.on_message(filters.command(["ram"]) )
 async def txt_handler(bot: Client, m: Message):
@@ -410,12 +488,12 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
-                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` **[{res}]**.mp4\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📕𝐓𝐢𝐭𝐥𝐞 » `{name1}` .pdf\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1}` .zip\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
-                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .jpg\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cccpvod = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .mp4\n\n<a href="{urlcpvod}">__**Click Here to Watch Stream**__</a>\n🔗𝐋𝐢𝐧𝐤 » {link0}\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                ccyt = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .mp4\n\n<a href="{url}">__**Click Here to Watch Stream**__</a>\n\n<pre><code>📚𝐂𝐨𝐮𝐫𝐬𝐞 » {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` **[{res}]**.mp4\n\n<pre><code>{b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📕𝐓𝐢𝐭𝐥𝐞 » `{name1}` .pdf\n\n<pre><code>{b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1}` .zip\n\n<pre><code>{b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
+                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .jpg\n\n<pre><code>{b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cccpvod = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .mp4\n\n<a href="{urlcpvod}">__**Click Here to Watch Stream**__</a>\n🔗𝐋𝐢𝐧𝐤 » {link0}\n\n<pre><code>{b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                ccyt = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .mp4\n\n<a href="{url}">__**Click Here to Watch Stream**__</a>\n\n<pre><code>{b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
                                  
                 if "drive" in url:
                     try:
@@ -834,7 +912,7 @@ async def text_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)   
-                        
+                     
 bot.run()
 if __name__ == "__main__":
     asyncio.run(main())
