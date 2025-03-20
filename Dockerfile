@@ -1,5 +1,5 @@
-FROM python:3.10.8-slim-buster
-
+# for heroku deployment...add this bulidpack.  https://github.com/heroku/heroku-buildpack-activestorage-preview
+FROM python:3.9.2-slim-buster
 RUN apt-get update -y && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends gcc libffi-dev musl-dev ffmpeg aria2 python3-pip \
     && apt-get clean \
@@ -7,6 +7,7 @@ RUN apt-get update -y && apt-get upgrade -y \
 
 COPY . /app/
 WORKDIR /app/
-RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
-
+RUN pip3 install --no-cache-dir --upgrade pip \
+    && pip3 install --no-cache-dir --upgrade -r requirements.txt \
+    && python3 -m pip install -U yt-dlp
 CMD gunicorn app:app & python3 main.py
