@@ -146,7 +146,7 @@ async def help_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
         "<pre><code> 🎉 Welcome to DRM Bot! 🎉</code></pre>\n\n"
         "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n\n"
-        "send /help for free users.\n\n"
+        "Send /help for free users.\n\n"
         "<pre><code>• 📚 Appx Zip+Encrypted Url\n"
         "• 🎓 Classplus DRM+ NDRM\n"
         "• 🧑‍🏫 PhysicsWallah DRM\n"
@@ -162,20 +162,20 @@ async def help_handler(client: Client, m: Message):
         "• 🎓 All Non DRM+AES Encrypted URLs\n"
         "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)</code></pre>\n\n"
         "🚀 You are not subscribed to any plan yet!\n\n"
-        "<pre><code>If you want to buy membership of the bot, feel free to contact 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁</code></pre>"
+        "<pre><code>Contact to 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 for buy membership.</code></pre>"
     ))
 
 @bot.on_message(filters.command(["help"]))
 async def txt_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
-        "<pre><code> 🎉Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎:</code></pre>\n\n"
-        "01. Send /start - To Check Bot \n\n"
-        "02. Send /saini - for extract txt file\n\n"
-        "03. Send /y2t - YouTube to .txt Convert\n\n"
-        "04. Send /logs - To see Bot Working Logs\n\n"
-        "05. Send /cookies - To update YT cookies.\n\n"
-        "06. Send /stop - Stop the Running Task. 🚫\n\n"
-        "➽. Direct Send Link For Extract (with https://)\n\n"
+        "<pre><code> 🎉Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎:</code></pre>\n┣\n"
+        "┣⪼01. Send /start - To Check Bot \n┣\n"
+        "┣⪼02. Send /saini - for extract txt file\n┣\n"
+        "┣⪼03. Send /y2t - YouTube to .txt Convert\n┣\n"
+        "┣⪼04. Send /logs - To see Bot Working Logs\n┣\n"
+        "┣⪼05. Send /cookies - To update YT cookies.\n┣\n"
+        "┣⪼06. Send /stop - Stop the Running Task. 🚫\n┣\n"
+        "┣⪼🔗  Direct Send Link For Extract (with https://)\n┣\n"
         "<pre><code>If you have any questions, feel free to ask! 💬</code></pre>"
         )
     ) 
@@ -230,7 +230,7 @@ async def start_command(bot: Client, message: Message):
     # Caption for the image
     caption = (
         "<pre><code>🌟 Welcome Boss😸! 🌟</code></pre>\n\n"
-        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n<pre><code>➽ 𝐌𝐚𝐝𝐞 𝐁𝐲: 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁</code></pre>"
+        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n<pre><code> 𝐌𝐚𝐝𝐞 𝐁𝐲 : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁</code></pre>"
     )
 
     await asyncio.sleep(1)
@@ -529,12 +529,12 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
-                cc = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` **[{res}]**.mp4\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cc1 = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📕𝐓𝐢𝐭𝐥𝐞 » `{name1}` .pdf\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cczip = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1}` .zip\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
-                ccimg = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .jpg\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cccpvod = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .mp4\n\n<a href="{urlcpvod}">__**Click Here to Watch Stream**__</a>\n🔗𝐋𝐢𝐧𝐤 » {link0}\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                ccyt = f'**——— ✦  {str(count).zfill(3)} ✦ ———**\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .mp4\n\n<a href="{url}">__**Click Here to Watch Stream**__</a>\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cc = f'<pre><quote>——— ✦  {str(count).zfill(3)} ✦ ———</quote></pre>\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` **[{res}]**.mp4\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cc1 = f'<pre><quote>——— ✦  {str(count).zfill(3)} ✦ ———</quote></pre>\n\n📕𝐓𝐢𝐭𝐥𝐞 » `{name1}` .pdf\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cczip = f'<pre><quote>——— ✦  {str(count).zfill(3)} ✦ ———</quote></pre>\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1}` .zip\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
+                ccimg = f'<pre><quote>——— ✦  {str(count).zfill(3)} ✦ ———</quote></pre>\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .jpg\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cccpvod = f'<pre><quote>——— ✦  {str(count).zfill(3)} ✦ ———</quote></pre>\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .mp4\n\n<a href="{urlcpvod}">__**Click Here to Watch Stream**__</a>\n🔗𝐋𝐢𝐧𝐤 » {link0}\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                ccyt = f'<pre><quote>——— ✦  {str(count).zfill(3)} ✦ ———</quote></pre>\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1}` .mp4\n\n<a href="{url}">__**Click Here to Watch Stream**__</a>\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
                                  
                 if "drive" in url:
                     try:
@@ -647,8 +647,17 @@ async def txt_handler(bot: Client, m: Message):
                         continue
      
                 else:
+                    remaining_links = len(links) - count
+                    progress = (count / len(links)) * 100
                     emoji_message = await show_random_emojis(message)
-                    Show = f"<pre><code>**⚡Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ...⏳**</code></pre>\n<pre><code>🔗𝐈𝐧𝐝𝐞𝐱 » {str(count)}/{len(links)}</code></pre>\n📚𝐓𝐢𝐭𝐥𝐞 » `{name}`\n<pre><code>🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}p</code></pre>\n🔗𝐋𝐢𝐧𝐤 » `{link0}`\n<pre><code>✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`</code></pre>"
+                    Show = f"<pre><code>**⚡𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐒𝐭𝐚𝐫𝐭𝐞𝐝...⏳**</code></pre>\n" \
+                           f"<pre><code>🚀𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬 » {progress:.2f}%</code></pre>\n" \
+                           f"<pre><code>🔗𝐈𝐧𝐝𝐞𝐱 » {str(count)}/{len(links)}</code></pre>\n" \
+                           f"<pre><code>🖇️𝐑𝐞𝐦𝐚𝐢𝐧𝐢𝐧𝐠 𝐋𝐢𝐧𝐤𝐬 » {remaining_links}</code></pre>\n" \
+                           f"📚𝐓𝐢𝐭𝐥𝐞 » `{name}`\n" \
+                           f"<pre><code>🍁𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}p</code></pre>\n" \
+                           f"🔗𝐋𝐢𝐧𝐤 » `{link0}`\n" \
+                           f"<pre><code>✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`</code></pre>"
                     prog = await m.reply_text(Show)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
