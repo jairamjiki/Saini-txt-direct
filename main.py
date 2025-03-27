@@ -31,7 +31,7 @@ photologo = 'https://tinypic.host/images/2025/02/07/DeWatermark.ai_1738952933236
 photoyt = 'https://tinypic.host/images/2025/03/18/YouTube-Logo.wine.png'
 
 async def show_random_emojis(message):
-    emojis = ['🐼', '🐶', '🐅', '⚡️', '🚀', '✨', '💥', '☠️', '🥂', '🍾', '🐔', '✈️', '🦁', '🕊️', '💃', '🦋']
+    emojis = ['🐼', '🐶', '🐅', '⚡️', '🚀', '✨', '💥', '☠️', '🥂', '🍾', '🐔', '✈️', '🦁', '🕊️', '💃', '🦋', '😊', '😂', '❤️', '😍', '👍', '😎', '🎉', '🎊', '🎈', '👑', '🍓',  '🍌']
     emoji_message = await message.reply_text(' '.join(random.choices(emojis, k=1)))
     return emoji_message
     
@@ -591,7 +591,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue   
 
-                elif ".pdf" in url:
+                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
                     try:
                         await asyncio.sleep(4)
                         url = url.replace(" ", "%20")
@@ -612,7 +612,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".pdf" in url:
+                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -640,7 +640,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".jpg" in url or ".png" in url:
+                elif ".jpg" in url or ".png" in url or ".jpeg" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.jpg" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -845,7 +845,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue   
 
-                elif ".pdf" in url:
+                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
                     try:
                         await asyncio.sleep(4)
                         url = url.replace(" ", "%20")
@@ -866,7 +866,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".pdf" in url:
+                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -894,7 +894,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".jpg" in url or ".png" in url:
+                elif ".jpg" in url or ".png" in url or ".jpeg" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.jpg" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -1148,7 +1148,7 @@ async def text_handler(bot: Client, m: Message):
                         count += 1
                         pass    
 
-                elif ".pdf" in url:
+                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
                     try:
                         await asyncio.sleep(4)
         # Replace spaces with %20 in the URL
@@ -1182,7 +1182,7 @@ async def text_handler(bot: Client, m: Message):
                         count += 1
                         pass
 
-                elif ".pdf" in url:
+                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -1214,14 +1214,14 @@ async def text_handler(bot: Client, m: Message):
                         #time.sleep(1)    
                         #pass
 
-                elif ".zip" in url:
+                elif any(ext in url for ext in [".zip", ".rar", ".iso"]):
                     try:
-                        cmd = f'yt-dlp -o "{name}.zip" "{url}"'
+                        cmd = f'yt-dlp -o "{name}.{ext}" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
-                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.zip', caption=cc1)
+                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.{ext}', caption=cc1)
                         count += 1
-                        os.remove(f'{name}.zip')
+                        os.remove(f'{name}.{ext}')
                     except FloodWait as e:
                         await m.reply_text(str(e))
                         time.sleep(e.x)
