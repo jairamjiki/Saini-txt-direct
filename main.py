@@ -349,7 +349,7 @@ async def txt_handler(bot: Client, m: Message):
             if "://" in i:
                 url = i.split("://", 1)[1]
                 links.append(i.split("://", 1))
-                if ".pdf" in url:
+                if ".pdf" in url or ".PDF":
                     pdf_count += 1
                 elif url.endswith((".png", ".jpeg", ".jpg")):
                     img_count += 1
