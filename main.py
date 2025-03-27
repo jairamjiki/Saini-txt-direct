@@ -31,7 +31,7 @@ photologo = 'https://tinypic.host/images/2025/02/07/DeWatermark.ai_1738952933236
 photoyt = 'https://tinypic.host/images/2025/03/18/YouTube-Logo.wine.png'
 
 async def show_random_emojis(message):
-    emojis = ['🐼', '🐶', '🐅', '⚡️', '🚀', '✨', '💥', '☠️', '🥂', '🍾', '🐔', '✈️', '🦁', '🕊️', '💃', '🦋', '😊', '😂', '❤️', '😍', '👍', '😎', '🎉', '🎊', '🎈', '👑', '🍓',  '🍌']
+    emojis = ['🐼', '🐶', '🐅', '⚡️', '🚀', '✨', '💥', '☠️', '🥂', '🍾', '🐔', '✈️', '🦁', '🕊️', '💃', '🦋']
     emoji_message = await message.reply_text(' '.join(random.choices(emojis, k=1)))
     return emoji_message
     
@@ -158,9 +158,9 @@ async def help_handler(client: Client, m: Message):
         "• 🎓 Brightcove Protection\n"
         "• 🎓 Visionias Protection\n"
         "• 🎓 Zoom Video\n"
-        "• 🎓 Utkarsh Protection\n"
+        "• 🎓 Utkarsh Protection(Video + PDF)\n"
         "• 🎓 All Non DRM+AES Encrypted URLs\n"
-        "• 🎓 MPD URLs (eg. Mpd_url?key=key XX:XX)`\n\n"
+        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)`\n\n"
         "🚀 You are not subscribed to any plan yet!\n\n"
         "<pre><code>Contact to 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 for buy membership.</code></pre>"
     ))
@@ -349,7 +349,7 @@ async def txt_handler(bot: Client, m: Message):
             if "://" in i:
                 url = i.split("://", 1)[1]
                 links.append(i.split("://", 1))
-                if ".pdf" in url or ".PDF" in url:
+                if ".pdf" in url:
                     pdf_count += 1
                 elif url.endswith((".png", ".jpeg", ".jpg")):
                     img_count += 1
@@ -455,8 +455,8 @@ async def txt_handler(bot: Client, m: Message):
     else:
         thumb = raw_text6
 
-    target_message = f"<pre><code>🎯𝐓𝐚𝐫𝐠𝐞𝐭 𝐁𝐚𝐭𝐜𝐡 : {b_name}</code></pre>"
-    await m.reply_text(f"{target_message}")
+    target_message = f"🎯Target Batch : {b_name}"
+    await m.reply_text(f"<pre><code>{target_message}</code></pre>")
 
     failed_count =0 
     count =int(raw_text)    
@@ -591,7 +591,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue   
 
-                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
+                elif ".pdf" in url:
                     try:
                         await asyncio.sleep(4)
                         url = url.replace(" ", "%20")
@@ -612,7 +612,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
+                elif ".pdf" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -640,7 +640,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".jpg" in url or ".png" in url or ".jpeg" in url:
+                elif ".jpg" in url or ".png" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.jpg" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -845,7 +845,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue   
 
-                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
+                elif ".pdf" in url:
                     try:
                         await asyncio.sleep(4)
                         url = url.replace(" ", "%20")
@@ -866,7 +866,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
+                elif ".pdf" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -894,7 +894,7 @@ async def txt_handler(bot: Client, m: Message):
                         count += 1
                         continue
 
-                elif ".jpg" in url or ".png" in url or ".jpeg" in url:
+                elif ".jpg" in url or ".png" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.jpg" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -1148,7 +1148,7 @@ async def text_handler(bot: Client, m: Message):
                         count += 1
                         pass    
 
-                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
+                elif ".pdf" in url:
                     try:
                         await asyncio.sleep(4)
         # Replace spaces with %20 in the URL
@@ -1182,7 +1182,7 @@ async def text_handler(bot: Client, m: Message):
                         count += 1
                         pass
 
-                elif ".pdf" in url or "pdfs" in ur or ".PDF" in url:
+                elif ".pdf" in url:
                     try:
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
@@ -1214,14 +1214,14 @@ async def text_handler(bot: Client, m: Message):
                         #time.sleep(1)    
                         #pass
 
-                elif any(ext in url for ext in [".zip", ".rar", ".iso"]):
+                elif ".zip" in url:
                     try:
-                        cmd = f'yt-dlp -o "{name}.{ext}" "{url}"'
+                        cmd = f'yt-dlp -o "{name}.zip" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
-                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.{ext}', caption=cc1)
+                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.zip', caption=cc1)
                         count += 1
-                        os.remove(f'{name}.{ext}')
+                        os.remove(f'{name}.zip')
                     except FloodWait as e:
                         await m.reply_text(str(e))
                         time.sleep(e.x)
