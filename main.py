@@ -455,7 +455,7 @@ async def txt_handler(bot: Client, m: Message):
     else:
         thumb = raw_text6
 
-    target_message = f"<pre><code>🎯𝐓𝐚𝐫𝐠𝐞𝐭 𝐁𝐚𝐭𝐜𝐡 » {b_name}</code></pre>"
+    target_message = f"<pre><code>🎯𝐓𝐚𝐫𝐠𝐞𝐭 𝐁𝐚𝐭𝐜𝐡 : {b_name}</code></pre>"
     await m.reply_text(f"{target_message}")
 
     failed_count =0 
