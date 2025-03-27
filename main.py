@@ -698,11 +698,11 @@ async def txt_handler(bot: Client, m: Message):
                     time.sleep(1)
 
             except Exception as e:
-                await m.reply_text(f'⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n'
-                                   f'——— ✨ [{str(count).zfill(3)}]({link0}) ✨ ———\n\n'
-                                   f'⚠️ 𝐓𝐢𝐭𝐥𝐞 » `{name}`\n'
+                await m.reply_text(f'——— ✨ [{str(count).zfill(3)}]({link0}) ✨ ———\n\n'
+                                   f'⚠️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n'
+                                   f'⚠️ 𝐓𝐢𝐭𝐥𝐞 » `{name}`\n\n'
                                    f'🔗𝐋𝐢𝐧𝐤 » <a href="{link0}">__**Click Here to See Link**__</a>\n\n'
-                                   f'📚 𝐂𝐨𝐮𝐫𝐬𝐞 » `{b_name}`'
+                                   f'📚 𝐂𝐨𝐮𝐫𝐬𝐞 » `{b_name}`\n\n'
                                    f'✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `🇸‌🇦‌🇮‌🇳‌🇮‌🐦`')
                 count += 1
                 failed_count += 1
@@ -795,8 +795,8 @@ async def txt_handler(bot: Client, m: Message):
     else:
         CR = credit
 
-    target_message = f"""<blockquote><i>🎯Target Batch : {b_name}</blockquote></i>"""
-    await m.reply_text(target_message)
+    target_message = f"🎯Target Batch : {b_name}"
+    await m.reply_text(f"<pre><code>{target_message}</code></pre>")
     
     count =int(raw_text)    
     try:
