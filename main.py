@@ -458,7 +458,7 @@ async def txt_handler(bot: Client, m: Message):
     target_message = f"🎯Target Batch : {b_name}"
     await m.reply_text(f"<pre><code>{target_message}</code></pre>")
 
-    failed_count =1 
+    failed_count =0 
     count =int(raw_text)    
     try:
         for i in range(arg-1, len(links)):
