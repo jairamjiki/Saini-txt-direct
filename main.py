@@ -349,7 +349,7 @@ async def txt_handler(bot: Client, m: Message):
             if "://" in i:
                 url = i.split("://", 1)[1]
                 links.append(i.split("://", 1))
-                if ".pdf" in url or ".PDF":
+                if ".pdf" in url or ".PDF" in url:
                     pdf_count += 1
                 elif url.endswith((".png", ".jpeg", ".jpg")):
                     img_count += 1
@@ -456,7 +456,7 @@ async def txt_handler(bot: Client, m: Message):
         thumb = raw_text6
 
     target_message = f"<pre><code>🎯𝐓𝐚𝐫𝐠𝐞𝐭 𝐁𝐚𝐭𝐜𝐡 » {b_name}</code></pre>"
-    await m.reply_text(f"target_message, disable_web_page_preview=True")
+    await m.reply_text(f"{target_message}, disable_web_page_preview=True")
 
     failed_count =0 
     count =int(raw_text)    
