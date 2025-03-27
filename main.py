@@ -158,9 +158,9 @@ async def help_handler(client: Client, m: Message):
         "• 🎓 Brightcove Protection\n"
         "• 🎓 Visionias Protection\n"
         "• 🎓 Zoom Video\n"
-        "• 🎓 Utkarsh Protection(Video + PDF)\n"
+        "• 🎓 Utkarsh Protection\n"
         "• 🎓 All Non DRM+AES Encrypted URLs\n"
-        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)`\n\n"
+        "• 🎓 MPD URLs (eg. Mpd_url?key=key XX:XX)`\n\n"
         "🚀 You are not subscribed to any plan yet!\n\n"
         "<pre><code>Contact to 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 for buy membership.</code></pre>"
     ))
@@ -455,8 +455,8 @@ async def txt_handler(bot: Client, m: Message):
     else:
         thumb = raw_text6
 
-    target_message = f"🎯Target Batch : {b_name}"
-    await m.reply_text(f"<pre><code>{target_message}</code></pre>")
+    target_message = f"<pre><code>🎯𝐓𝐚𝐫𝐠𝐞𝐭 𝐁𝐚𝐭𝐜𝐡 » {b_name}</code></pre>"
+    await m.reply_text(f"target_message, disable_web_page_preview=True")
 
     failed_count =0 
     count =int(raw_text)    
