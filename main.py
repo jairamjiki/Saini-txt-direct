@@ -795,8 +795,8 @@ async def txt_handler(bot: Client, m: Message):
     else:
         CR = credit
 
-    target_message = f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
-    await m.reply_text(target_message, quote=True)
+    target_message = f"""<blockquote><i>🎯Target Batch : {b_name}</blockquote></i>"""
+    await m.reply_text(target_message)
     
     count =int(raw_text)    
     try:
