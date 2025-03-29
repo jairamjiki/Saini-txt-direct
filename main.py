@@ -144,40 +144,40 @@ cookies_file_path= "youtube_cookies.txt"
 @bot.on_message(filters.command(["drm"]))
 async def help_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
-        "> 🎉 Welcome to DRM Bot! 🎉</code></pre>\n\n"
-        "> You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n\n"
-        "> Send /help for free users.\n\n"
-        "> `• 📚 Appx Zip+Encrypted Url\n"
-        "> • 🎓 Classplus DRM+ NDRM\n"
-        "> • 🧑‍🏫 PhysicsWallah DRM\n"
-        "> • 📚 CareerWill + PDF\n"
-        "> • 🎓 Khan GS\n"
-        "> • 🎓 Study Iq DRM\n"
-        "> • 🚀 APPX + APPX Enc PDF\n"
-        "> • 🎓 Vimeo Protection\n"
-        "> • 🎓 Brightcove Protection\n"
-        "> • 🎓 Visionias Protection\n"
-        "> • 🎓 Zoom Video\n"
-        "> • 🎓 Utkarsh Protection(Video + PDF)\n"
-        "> • 🎓 All Non DRM+AES Encrypted URLs\n"
-        "> • 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)`\n\n"
-        "> 🚀 You are not subscribed to any plan yet!\n\n"
-        "> Contact to 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 for buy membership."
+        "🎉 Welcome to DRM Bot! 🎉</code></pre>\n\n"
+        "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n\n"
+        "Send /help for free users.\n\n"
+        "• 📚 Appx Zip+Encrypted Url\n"
+        "• 🎓 Classplus DRM+ NDRM\n"
+        "• 🧑‍🏫 PhysicsWallah DRM\n"
+        "• 📚 CareerWill + PDF\n"
+        "• 🎓 Khan GS\n"
+        "• 🎓 Study Iq DRM\n"
+        "• 🚀 APPX + APPX Enc PDF\n"
+        "• 🎓 Vimeo Protection\n"
+        "• 🎓 Brightcove Protection\n"
+        "• 🎓 Visionias Protection\n"
+        "• 🎓 Zoom Video\n"
+        "• 🎓 Utkarsh Protection(Video + PDF)\n"
+        "• 🎓 All Non DRM+AES Encrypted URLs\n"
+        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)`\n\n"
+        "🚀 You are not subscribed to any plan yet!\n\n"
+        "Contact to 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 for buy membership."
     ))
 
 @bot.on_message(filters.command(["help"]))
 async def txt_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
-        "> 🎉Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎:\n┣\n"
-        "> ┣⪼01. Send /start - To Check Bot \n┣\n"
-        "> ┣⪼02. Send /saini - for extract txt file\n┣\n"
-        "> ┣⪼03. Send /cpdrm - only for cp drm\n┣\n"
-        "> ┣⪼04. Send /y2t - YouTube to .txt Convert\n┣\n"
-        "> ┣⪼05. Send /logs - To see Bot Working Logs\n┣\n"
-        "> ┣⪼06. Send /cookies - To update YT cookies.\n┣\n"
-        "> ┣⪼07. Send /stop - Stop the Running Task. 🚫\n┣\n"
-        "> ┣⪼🔗  Direct Send Link For Extract (with https://)\n┣\n"
-        "> If you have any questions, feel free to ask! 💬"
+        "🎉Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎:\n┣\n"
+        "┣⪼01. Send /start - To Check Bot \n┣\n"
+        "┣⪼02. Send /saini - for extract txt file\n┣\n"
+        "┣⪼03. Send /cpdrm - only for cp drm\n┣\n"
+        "┣⪼04. Send /y2t - YouTube to .txt Convert\n┣\n"
+        "┣⪼05. Send /logs - To see Bot Working Logs\n┣\n"
+        "┣⪼06. Send /cookies - To update YT cookies.\n┣\n"
+        "┣⪼07. Send /stop - Stop the Running Task. 🚫\n┣\n"
+        "┣⪼🔗  Direct Send Link For Extract (with https://)\n┣\n"
+        "If you have any questions, feel free to ask! 💬"
         )
     ) 
 
@@ -221,8 +221,9 @@ async def cookies_handler(client: Client, m: Message):
 async def start_command(bot: Client, message: Message):
     random_image_url = random.choice(image_urls)
     caption = (
-        "🌟 Welcome Boss😸! 🌟\n\n"
-        "➽ I am Powerful DRM Uploader Bot 📥\n\n➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n➽ 𝐌𝐚𝐝𝐞 𝐁𝐲 : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
+        "> 🌟 Welcome Boss😸! 🌟\n\n"
+        "> ➽ I am Powerful DRM Uploader Bot 📥\n"
+        "> ➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n➽ 𝐌𝐚𝐝𝐞 𝐁𝐲 : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
     )
     
     await bot.send_photo(
