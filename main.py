@@ -187,7 +187,7 @@ help_text =
         "> Bulk extraction for posts (After login)\n\n"
 
 )
-@bot.on_message(filters.command("try") & auth_owner_channel_filter)
+@bot.on_message(filters.command("try"))
 async def help_command(client: Client, message: Message):
     await message.reply(help_text)
     
