@@ -164,8 +164,7 @@ async def help_handler(client: Client, m: Message):
         "🚀 You are not subscribed to any plan yet!\n\n"
         "Contact to 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 for buy membership."
     ))
-help_text =
-(
+help_text = (
         "📝 **Bot Commands Overview (1/2)**:\n\n"
         "1. **/add userID**\n"
         "> Add user to premium (Owner only)\n\n"
