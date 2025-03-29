@@ -115,8 +115,8 @@ import random
 keyboard = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="📞 Contact", url="https://t.me/Nikhil_saini_khe"),
-            InlineKeyboardButton(text="🛠️ Help", url="https://t.me/+3k-1zcJxINYwNGZl"),
+            InlineKeyboardButton(text="✌📞 𝓒𝓸𝓷𝓽𝓪𝓬𝓽 📞✌", url="https://t.me/Nikhil_saini_khe"),
+            InlineKeyboardButton(text="🛠️ 🇭🇪🇱🇵", url="https://t.me/+3k-1zcJxINYwNGZl"),
         ],
     ]
 )
@@ -125,8 +125,8 @@ keyboard = InlineKeyboardMarkup(
 Busy = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="📞 Contact", url="https://t.me/Nikhil_saini_khe"),
-            InlineKeyboardButton(text="🛠️ Help", url="https://t.me/+3k-1zcJxINYwNGZl"),
+            InlineKeyboardButton(text="✌📞 𝓒𝓸𝓷𝓽𝓪𝓬𝓽 📞✌", url="https://t.me/Nikhil_saini_khe"),
+            InlineKeyboardButton(text="🛠️ 🇭🇪🇱🇵", url="https://t.me/+3k-1zcJxINYwNGZl"),
         ],
     ]
 )
@@ -221,9 +221,10 @@ async def cookies_handler(client: Client, m: Message):
 async def start_command(bot: Client, message: Message):
     random_image_url = random.choice(image_urls)
     caption = (
-        "🌟 Welcome Boss😸! 🌟\n\n"
-        "➽ I am Powerful DRM Uploader Bot 📥\n"
-        "➽ 𝐔𝐬𝐞 /drm for use this Bot.\n\n➽ 𝐌𝐚𝐝𝐞 𝐁𝐲 : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
+        "🌟 𝑾̲̅𝒆̲̅𝒍̲̅𝒄̲̅𝒐̲̅𝒎̲̅𝒆̲̅ 𝑩̲̅𝒐̲̅𝒔̲̅𝒔̲̅ 😸! 🌟\n\n"
+        "➽ 𝕀 𝕒𝕞 ℙ𝕠𝕨𝕖𝕣𝕗𝕦𝕝 𝔻ℝ𝕄 𝕌𝕡𝕝𝕠𝕒𝕕𝕖𝕣 𝔹𝕠𝕥 📥\n"
+        "➽ ✩░▒▓▆▅▃▂▁𝐔𝐬𝐞 /drm 𝐟𝐨𝐫 𝐮𝐬𝐞 𝐭𝐡𝐞 𝐛𝐨𝐭▁▂▃▅▆▓▒░✩.\n"
+        "➽ 𝐌𝐚𝐝𝐞 𝐁𝐲 ► : ꧁༺ 𝓙𝓸𝓱𝓷 𝓦𝓲𝓬𝓴 ༻꧂"
     )
     
     await bot.send_photo(
